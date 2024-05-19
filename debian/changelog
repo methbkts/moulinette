@@ -1,3 +1,12 @@
+moulinette (11.2.1) stable; urgency=low
+
+  - repo chores: various black enhancements
+  - [i18n] Translations updated for Arabic, Basque, Catalan, Chinese (Simplified), Czech, Dutch, English, Esperanto, French, Galician, German, Hindi, Indonesian, Italian, Japanese, Nepali, Norwegian Bokmål, Persian, Polish, Portuguese, Russian, Spanish, Swedish, Turkish, Ukrainian
+
+  Thanks to all contributors <3 ! (Alexandre Aubin, Francescc, José M, Metin Bektas, ppr, Psycojoker, rosbeef andino, Tagada, xabirequejo, xaloc33)
+
+ -- OniriCorpe <oniricorpe@yunohost.org>  Sun, 19 May 2024 23:49:00 +0200
+
 moulinette (11.2) stable; urgency=low
 
   - [i18n] Translations updated for Japanese
