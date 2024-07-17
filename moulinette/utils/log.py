@@ -84,7 +84,6 @@ def getHandlersByClass(classinfo, limit=0):
 
 
 class MoulinetteLogger(Logger):
-
     """Custom logger class
 
     Extend base Logger class to provide the SUCCESS custom log level with

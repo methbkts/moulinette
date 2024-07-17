@@ -18,7 +18,6 @@ logger = logging.getLogger("moulinette.interface")
 
 
 class BaseActionsMapParser:
-
     """Actions map's base Parser
 
     Each interfaces must implement an ActionsMapParser class derived
@@ -147,7 +146,6 @@ class BaseActionsMapParser:
 
 
 class _ExtendedSubParsersAction(argparse._SubParsersAction):
-
     """Subparsers with extended properties for argparse
 
     It provides the following additional properties at initialization,
@@ -447,7 +445,6 @@ class PositionalsFirstHelpFormatter(argparse.HelpFormatter):
 
 
 class JSONExtendedEncoder(JSONEncoder):
-
     """Extended JSON encoder
 
     Extend default JSON encoder to recognize more types and classes. It will
