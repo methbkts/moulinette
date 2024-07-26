@@ -1,6 +1,8 @@
-moulinette (12.0.0) unstable; urgency=low
+moulinette (12.0.1) testing; urgency=low
 
-  - Tmp changelog to prepare Bookworm
+  - Tweaks and fixes for new portal API / ssowat refactoring ([#341](https://github.com/YunoHost/moulinette/pull/341))
+  - Simplify logging : unecessary messages + obscure concept of "action id" ([#337](https://github.com/YunoHost/moulinette/pull/337))
+  - Misc tweaks to adapt code and tests to Python 3.11
 
  -- Alexandre Aubin <alex.aubin@mailoo.org>  Thu, 04 May 2023 20:30:19 +0200
 
