@@ -1,5 +1,5 @@
 {
-    "argument_required": "Требуется'{argument}' аргумент",
+    "argument_required": "Требуется аргумент «{argument}»",
     "authentication_required": "Требуется аутентификация",
     "confirm": "Подтвердить {prompt}",
     "deprecated_command": "'{prog} {command}' устарела и будет удалена",
@@ -10,7 +10,7 @@
     "invalid_argument": "Неправильный аргумент '{argument}': {error}",
     "logged_in": "Вы вошли",
     "logged_out": "Вы вышли из системы",
-    "not_logged_in": "Вы не залогинились",
+    "not_logged_in": "Вы не вошли в систему",
     "operation_interrupted": "Действие прервано",
     "password": "Пароль",
     "pattern_not_match": "Не соответствует образцу",
