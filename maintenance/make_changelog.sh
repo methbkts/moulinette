@@ -1,4 +1,4 @@
-VERSION="11.2.1"
+VERSION="11.2.2"
 RELEASE="stable"
 REPO=$(basename $(git rev-parse --show-toplevel))
 REPO_URL=$(git remote get-url origin)
