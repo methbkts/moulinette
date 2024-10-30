@@ -1,3 +1,9 @@
+moulinette (12.0.3) stable; urgency=low
+
+  - [i18n] Merge branch 'dev' (11.2.2) into bookworm (efeaecbb)
+
+ -- tituspijean <tituspijean@yunohost.org>  Wed, 30 Oct 2024 22:56:09 +0100
+
 moulinette (12.0.2) testing; urgency=low
 
   - portal-api: Bypass CSRF protection for login route ([#340](http://github.com/YunoHost/moulinette/pull/340))
