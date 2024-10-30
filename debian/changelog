@@ -1,3 +1,11 @@
+moulinette (11.2.2) stable; urgency=low
+
+  - [i18n] Translations updated for Basque, Dutch, Indonesian, Russian, Turkish
+
+  Thanks to all contributors <3 ! (Alexandre Aubin, Atalay Daban, Ivan Davydov, Mer, cjdw, xabirequejo)
+
+ -- tituspijean <tituspijean@yunohost.org>  Wed, 30 Oct 2024 22:51:56 +0100
+
 moulinette (11.2.1) stable; urgency=low
 
   - repo chores: various black enhancements
