@@ -244,7 +244,12 @@ class TTYHandler(logging.StreamHandler):
         level = record.levelname
         level_with_color = level
         if self.supports_color():
-            if self.level > log.DEBUG and record.levelname in ["SUCCESS", "WARNING", "ERROR", "INFO"]:
+            if self.level > log.DEBUG and record.levelname in [
+                "SUCCESS",
+                "WARNING",
+                "ERROR",
+                "INFO",
+            ]:
                 level = m18n.g(record.levelname.lower())
             color = self.LEVELS_COLOR.get(record.levelno, "white")
             level_with_color = f"{colors_codes[color]}{level}{END_CLI_COLOR}"
