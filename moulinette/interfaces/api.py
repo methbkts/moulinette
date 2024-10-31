@@ -358,16 +358,22 @@ class _ActionsMapPlugin:
             if "credentials" not in request.json:
                 raise HTTPResponse("Missing credentials parameter", 400)
             credentials = request.json["credentials"]
-            profile = request.json.get("profile", self.actionsmap.default_authentication)
+            profile = request.json.get(
+                "profile", self.actionsmap.default_authentication
+            )
         else:
             if "credentials" in request.params:
                 credentials = request.params["credentials"]
             elif "username" in request.params and "password" in request.params:
-                credentials = request.params["username"] + ":" + request.params["password"]
+                credentials = (
+                    request.params["username"] + ":" + request.params["password"]
+                )
             else:
                 raise HTTPResponse("Missing credentials parameter", 400)
 
-            profile = request.params.get("profile", self.actionsmap.default_authentication)
+            profile = request.params.get(
+                "profile", self.actionsmap.default_authentication
+            )
 
         authenticator = self.actionsmap.get_authenticator(profile)
 
@@ -750,10 +756,14 @@ class Interface:
                 origin = request.headers.environ.get("HTTP_ORIGIN", "")
                 if origin and origin in self.allowed_cors_origins:
                     resp = r if isinstance(r, HTTPResponse) else response
-                    resp.headers['Access-Control-Allow-Origin'] = origin
-                    resp.headers['Access-Control-Allow-Methods'] = 'GET, HEAD, POST, PUT, OPTIONS, DELETE'
-                    resp.headers['Access-Control-Allow-Headers'] = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
-                    resp.headers['Access-Control-Allow-Credentials'] = 'true'
+                    resp.headers["Access-Control-Allow-Origin"] = origin
+                    resp.headers["Access-Control-Allow-Methods"] = (
+                        "GET, HEAD, POST, PUT, OPTIONS, DELETE"
+                    )
+                    resp.headers["Access-Control-Allow-Headers"] = (
+                        "Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token"
+                    )
+                    resp.headers["Access-Control-Allow-Credentials"] = "true"
 
                 return r
 
@@ -785,8 +795,9 @@ class Interface:
         def handle_options():
             return HTTPResponse("", 204)
 
-        app.route('/<:re:.*>', method="OPTIONS",
-                  callback=handle_options, skip=["actionsmap"])
+        app.route(
+            "/<:re:.*>", method="OPTIONS", callback=handle_options, skip=["actionsmap"]
+        )
 
         # Append additional routes
         # TODO: Add optional authentication to those routes?
