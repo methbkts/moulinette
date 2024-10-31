@@ -21,6 +21,12 @@ moulinette (12.0.1) testing; urgency=low
 
  -- Alexandre Aubin <alex.aubin@mailoo.org>  Thu, 04 May 2023 20:30:19 +0200
 
+moulinette (11.3.0) stable; urgency=low
+
+  - Bump version for 11.3 release
+
+ -- Alexandre Aubin <alex.aubin@mailoo.org>  Thu, 31 Oct 2024 14:02:05 +0100
+
 moulinette (11.2.2) stable; urgency=low
 
   - [i18n] Translations updated for Basque, Dutch, Indonesian, Russian, Turkish
