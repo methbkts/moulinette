@@ -1,3 +1,26 @@
+moulinette (12.0.3) stable; urgency=low
+
+  - [i18n] Merge branch 'dev' (11.2.2) into bookworm (efeaecbb)
+
+ -- tituspijean <tituspijean@yunohost.org>  Wed, 30 Oct 2024 22:56:09 +0100
+
+moulinette (12.0.2) testing; urgency=low
+
+  - portal-api: Bypass CSRF protection for login route ([#340](http://github.com/YunoHost/moulinette/pull/340))
+  - portal-api: login/logout redirect to referer when param referer_redirect is set ([#339](http://github.com/YunoHost/moulinette/pull/339))
+
+  Thanks to all contributors <3 ! (selfhoster1312)
+
+ -- Alexandre Aubin <alex.aubin@mailoo.org>  Sat, 31 Aug 2024 20:12:43 +0200
+
+moulinette (12.0.1) testing; urgency=low
+
+  - Tweaks and fixes for new portal API / ssowat refactoring ([#341](https://github.com/YunoHost/moulinette/pull/341))
+  - Simplify logging : unecessary messages + obscure concept of "action id" ([#337](https://github.com/YunoHost/moulinette/pull/337))
+  - Misc tweaks to adapt code and tests to Python 3.11
+
+ -- Alexandre Aubin <alex.aubin@mailoo.org>  Thu, 04 May 2023 20:30:19 +0200
+
 moulinette (11.3.0) stable; urgency=low
 
   - Bump version for 11.3 release
