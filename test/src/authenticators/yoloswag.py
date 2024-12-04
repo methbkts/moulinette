@@ -19,6 +19,7 @@
 #
 
 import logging
+import json
 from moulinette.utils.text import random_ascii
 from moulinette.core import MoulinetteError, MoulinetteAuthenticationError
 from moulinette.authentication import BaseAuthenticator
@@ -56,7 +57,7 @@ class Authenticator(BaseAuthenticator):
 
         response.set_cookie(
             "moulitest",
-            new_infos,
+            json.dumps(new_infos),
             secure=True,
             secret=session_secret,
             httponly=True,
@@ -68,6 +69,7 @@ class Authenticator(BaseAuthenticator):
 
         try:
             infos = request.get_cookie("moulitest", secret=session_secret, default={})
+            infos = json.loads(infos)
         except Exception:
             if not raise_if_no_session_exists:
                 return {"id": random_ascii()}
