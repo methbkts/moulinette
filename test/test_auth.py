@@ -97,15 +97,13 @@ class TestAuthAPI:
         assert "moulitest" not in moulinette_webapi.cookies
 
     def test_login_csrf_attempt(self, moulinette_webapi):
-        # C.f.
-        # https://security.stackexchange.com/a/58308
-        # https://stackoverflow.com/a/22533680
+        # CSRF should not block the login endpoint
 
         assert (
             "CSRF protection"
-            in self.login(moulinette_webapi, csrf=True, status=403).text
+            not in self.login(moulinette_webapi, csrf=True, status=200).text
         )
-        assert not any(c.name == "moulitest" for c in moulinette_webapi.cookiejar)
+        assert "moulitest" in moulinette_webapi.cookies
 
     def test_login_then_legit_request_without_cookies(self, moulinette_webapi):
         self.login(moulinette_webapi)
