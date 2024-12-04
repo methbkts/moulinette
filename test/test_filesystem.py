@@ -67,7 +67,7 @@ def test_read_file_cannot_read_ioerror(test_file, mocker):
 
     translation = m18n.g("cannot_open_file", file=str(test_file), error=error)
     expected_msg = translation.format(file=str(test_file), error=error)
-    assert expected_msg in str(exception)
+    assert expected_msg in exception.value.content()
 
 
 def test_read_file_cannot_read_exception(test_file, mocker):
@@ -79,7 +79,7 @@ def test_read_file_cannot_read_exception(test_file, mocker):
 
     translation = m18n.g("unknown_error_reading_file", file=str(test_file), error=error)
     expected_msg = translation.format(file=str(test_file), error=error)
-    assert expected_msg in str(exception)
+    assert expected_msg in exception.value.content()
 
 
 def test_read_json(test_json):
@@ -97,7 +97,7 @@ def test_read_json_cannot_read(test_json, mocker):
 
     translation = m18n.g("corrupted_json", ressource=str(test_json), error=error)
     expected_msg = translation.format(ressource=str(test_json), error=error)
-    assert expected_msg in str(exception)
+    assert expected_msg in exception.value.content()
 
 
 def test_read_yaml(test_yaml):
@@ -115,7 +115,7 @@ def test_read_yaml_cannot_read(test_yaml, mocker):
 
     translation = m18n.g("corrupted_yaml", ressource=str(test_yaml), error=error)
     expected_msg = translation.format(ressource=str(test_yaml), error=error)
-    assert expected_msg in str(exception)
+    assert expected_msg in exception.value.content()
 
 
 def test_read_toml(test_toml):
@@ -133,7 +133,7 @@ def test_read_toml_cannot_read(test_toml, mocker):
 
     translation = m18n.g("corrupted_toml", ressource=str(test_toml), error=error)
     expected_msg = translation.format(ressource=str(test_toml), error=error)
-    assert expected_msg in str(exception)
+    assert expected_msg in exception.value.content()
 
 
 def test_write_to_existing_file(test_file):
@@ -159,7 +159,7 @@ def test_write_to_existing_file_bad_perms(test_file, mocker):
 
     translation = m18n.g("cannot_write_file", file=str(test_file), error=error)
     expected_msg = translation.format(file=str(test_file), error=error)
-    assert expected_msg in str(exception)
+    assert expected_msg in exception.value.content()
 
 
 def test_write_to_file_exception(test_file, mocker):
@@ -171,7 +171,7 @@ def test_write_to_file_exception(test_file, mocker):
 
     translation = m18n.g("error_writing_file", file=str(test_file), error=error)
     expected_msg = translation.format(file=str(test_file), error=error)
-    assert expected_msg in str(exception)
+    assert expected_msg in exception.value.content()
 
 
 def test_write_cannot_write_folder(tmp_path):
@@ -228,7 +228,7 @@ def test_write_json_to_existing_file_bad_perms(test_file, mocker):
 
     translation = m18n.g("cannot_write_file", file=str(test_file), error=error)
     expected_msg = translation.format(file=str(test_file), error=error)
-    assert expected_msg in str(exception)
+    assert expected_msg in exception.value.content()
 
 
 def test_write_json_to_file_exception(test_file, mocker):
@@ -242,7 +242,7 @@ def test_write_json_to_file_exception(test_file, mocker):
 
     translation = m18n.g("error_writing_file", file=str(test_file), error=error)
     expected_msg = translation.format(file=str(test_file), error=error)
-    assert expected_msg in str(exception)
+    assert expected_msg in exception.value.content()
 
 
 def text_write_list_to_json(tmp_path):
@@ -264,7 +264,7 @@ def test_write_to_json_bad_perms(test_json, mocker):
 
     translation = m18n.g("cannot_write_file", file=str(test_json), error=error)
     expected_msg = translation.format(file=str(test_json), error=error)
-    assert expected_msg in str(exception)
+    assert expected_msg in exception.value.content()
 
 
 def test_write_json_cannot_write_to_non_existant_folder():
@@ -297,7 +297,7 @@ def test_write_yaml_to_existing_file_bad_perms(test_file, mocker):
 
     translation = m18n.g("cannot_write_file", file=str(test_file), error=error)
     expected_msg = translation.format(file=str(test_file), error=error)
-    assert expected_msg in str(exception)
+    assert expected_msg in exception.value.content()
 
 
 def test_write_yaml_to_file_exception(test_file, mocker):
@@ -311,7 +311,7 @@ def test_write_yaml_to_file_exception(test_file, mocker):
 
     translation = m18n.g("error_writing_file", file=str(test_file), error=error)
     expected_msg = translation.format(file=str(test_file), error=error)
-    assert expected_msg in str(exception)
+    assert expected_msg in exception.value.content()
 
 
 def text_write_list_to_yaml(tmp_path):
@@ -333,7 +333,7 @@ def test_write_to_yaml_bad_perms(test_yaml, mocker):
 
     translation = m18n.g("cannot_write_file", file=str(test_yaml), error=error)
     expected_msg = translation.format(file=str(test_yaml), error=error)
-    assert expected_msg in str(exception)
+    assert expected_msg in exception.value.content()
 
 
 def test_write_yaml_cannot_write_to_non_existant_folder():
@@ -415,7 +415,7 @@ def test_chown(test_file):
 
     translation = m18n.g("unknown_user", user=fake_user)
     expected_msg = translation.format(user=fake_user)
-    assert expected_msg in str(exception)
+    assert expected_msg in exception.value.content()
 
     fake_grp = "nogrplol"
     with pytest.raises(MoulinetteError) as exception:
@@ -423,7 +423,7 @@ def test_chown(test_file):
 
     translation = m18n.g("unknown_group", group=fake_grp)
     expected_msg = translation.format(group=fake_grp)
-    assert expected_msg in str(exception)
+    assert expected_msg in exception.value.content()
 
 
 def test_chown_recursive(test_file):
@@ -446,7 +446,7 @@ def test_chown_exception(test_file, mocker):
         "error_changing_file_permissions", path=str(test_file), error=str(error)
     )
     expected_msg = translation.format(path=str(test_file), error=str(error))
-    assert expected_msg in str(exception)
+    assert expected_msg in exception.value.content()
 
 
 def test_chmod(test_file):
@@ -485,7 +485,7 @@ def test_chmod_exception(test_file, mocker):
         "error_changing_file_permissions", path=str(test_file), error=str(error)
     )
     expected_msg = translation.format(path=str(test_file), error=str(error))
-    assert expected_msg in str(exception)
+    assert expected_msg in exception.value.content()
 
 
 def test_remove_file(test_file):
@@ -503,7 +503,7 @@ def test_remove_file_bad_perms(test_file, mocker):
 
     translation = m18n.g("error_removing", path=str(test_file), error=error)
     expected_msg = translation.format(path=str(test_file), error=error)
-    assert expected_msg in str(exception)
+    assert expected_msg in exception.value.content()
 
 
 def test_remove_directory(tmp_path):
