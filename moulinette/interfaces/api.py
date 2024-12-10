@@ -404,6 +404,7 @@ class _ActionsMapPlugin:
 
         response.content_type = 'text/event-stream'
         response.cache_control = 'no-cache'
+        response.headers["X-Accel-Buffering"] = "no"
 
         from yunohost.utils.sse import sse_stream
         yield from sse_stream()
