@@ -20,7 +20,7 @@
 
 import subprocess
 import os
-import threading
+from threading import Thread
 import queue
 import logging
 
@@ -122,19 +122,35 @@ def call_async_output(args, callback, **kwargs):
 
     return p.poll()
 
+#from gevent import monkey; monkey.patch_all()
 
-class LogPipe(threading.Thread):
+
+# cf https://stackoverflow.com/questions/9192539
+# The API uses monkey.patch_all() and we have to switch to a proper greenlet
+# thread for the LogPipe stuff to work properly (maybe we should also enable
+# gevent on the CLI, idk...)
+from gevent import monkey
+if monkey.is_module_patched('threading'):
+    from gevent import Greenlet
+    from gevent.fileobject import FileObjectThread
+    Thread = Greenlet
+else:
+    FileObjectThread = os.fdopen
+
+
+
+class LogPipe(Thread):
     # Adapted from https://codereview.stackexchange.com/a/17959
     def __init__(self, log_callback, queue):
         """Setup the object with a logger and a loglevel
         and start the thread
         """
-        threading.Thread.__init__(self)
+        Thread.__init__(self)
         self.daemon = False
         self.log_callback = log_callback
 
         self.fdRead, self.fdWrite = os.pipe()
-        self.pipeReader = os.fdopen(self.fdRead, "rb")
+        self.pipeReader = FileObjectThread(self.fdRead, "rb")
 
         self.queue = queue
 
