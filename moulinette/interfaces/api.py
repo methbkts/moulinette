@@ -18,6 +18,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
+import os
 import sys
 import re
 import errno
@@ -36,6 +37,7 @@ from moulinette.actionsmap import ActionsMap
 from moulinette.core import (
     MoulinetteError,
     MoulinetteValidationError,
+    MoulinetteAuthenticationError,
 )
 from moulinette.interfaces import (
     BaseActionsMapParser,
@@ -396,11 +398,12 @@ class _ActionsMapPlugin:
         profile = request.params.get("profile", self.actionsmap.default_authentication)
         authenticator = self.actionsmap.get_authenticator(profile)
 
-        try:
-            authenticator.get_session_cookie()
-        except KeyError:
-            raise HTTPResponse(m18n.g("not_logged_in"), 401)
-
+        # Hardcoded yunohost stuff for the SSE stream to not require authentication when postinstall isnt done yet...
+        if os.path.exists("/etc/yunohost/installed"):
+            try:
+                authenticator.get_session_cookie()
+            except MoulinetteAuthenticationError:
+                raise HTTPResponse(m18n.g("not_logged_in"), 401)
 
         response.content_type = 'text/event-stream'
         response.cache_control = 'no-cache'
