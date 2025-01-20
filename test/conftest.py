@@ -68,10 +68,6 @@ def logging_configuration(moulinette):
         },
         "filters": {},
         "handlers": {
-            "api": {
-                "level": level,
-                "class": "moulinette.interfaces.api.APIQueueHandler",
-            },
             "tty": {
                 "level": tty_level,
                 "class": "moulinette.interfaces.cli.TTYHandler",
