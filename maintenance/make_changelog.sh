@@ -18,7 +18,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-VERSION="12.0.3"
+VERSION="12.??"
 RELEASE="stable"
 REPO=$(basename $(git rev-parse --show-toplevel))
 REPO_URL=$(git remote get-url origin)

@@ -1,3 +1,12 @@
+moulinette (12.0.4) stable; urgency=low
+
+  - debian: specify bottle version more accurately to prevent everything exploding upon fail migration from bullseye (5e9d5d4e)
+  - api: fix logout message (cb1775e8)
+
+  Thanks to all contributors <3 ! (Félix Piédallu, Salamandar)
+
+ -- Alexandre Aubin <alex.aubin@mailoo.org>  Mon, 20 Jan 2025 15:34:09 +0100
+
 moulinette (12.0.3) stable; urgency=low
 
   - [i18n] Merge branch 'dev' (11.2.2) into bookworm (efeaecbb)
