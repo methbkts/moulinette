@@ -405,11 +405,12 @@ class _ActionsMapPlugin:
             except MoulinetteAuthenticationError:
                 raise HTTPResponse(m18n.g("not_logged_in"), 401)
 
-        response.content_type = 'text/event-stream'
-        response.cache_control = 'no-cache'
+        response.content_type = "text/event-stream"
+        response.cache_control = "no-cache"
         response.headers["X-Accel-Buffering"] = "no"
 
         from yunohost.utils.sse import sse_stream
+
         yield from sse_stream()
 
     def process(self, _route, arguments={}):
@@ -447,7 +448,6 @@ class _ActionsMapPlugin:
             if UPLOAD_DIR is not None:
                 rmtree(UPLOAD_DIR, True)
                 UPLOAD_DIR = None
-
 
     def display(self, message, style="info"):
         pass
@@ -740,7 +740,9 @@ class Interface:
         )
 
         try:
-            from gevent import monkey; monkey.patch_all()
+            from gevent import monkey
+
+            monkey.patch_all()
             from bottle import GeventServer
 
             GeventServer(host, port).run(self._app)

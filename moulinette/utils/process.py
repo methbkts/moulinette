@@ -122,18 +122,20 @@ def call_async_output(args, callback, **kwargs):
 
     return p.poll()
 
+
 # cf https://stackoverflow.com/questions/9192539
 # The API uses monkey.patch_all() and we have to switch to a proper greenlet
 # thread for the LogPipe stuff to work properly (maybe we should also enable
 # gevent on the CLI, idk...)
 from gevent import monkey
-if monkey.is_module_patched('threading'):
+
+if monkey.is_module_patched("threading"):
     from gevent import Greenlet
     from gevent.fileobject import FileObjectThread
+
     Thread = Greenlet
 else:
     FileObjectThread = os.fdopen
-
 
 
 class LogPipe(Thread):
