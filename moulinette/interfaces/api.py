@@ -438,7 +438,7 @@ class _ActionsMapPlugin:
             if "referer_redirect" in request.params and referer:
                 redirect(referer)
             else:
-                return m18n.g("logged_in")
+                return m18n.g("logged_out")
 
     def messages(self):
         """Listen to the messages WebSocket stream
