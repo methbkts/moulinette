@@ -42,5 +42,6 @@
     "warn_the_user_that_lock_is_acquired": "La otra orden recién terminó, iniciando esta orden ahora",
     "warn_the_user_about_waiting_lock_again": "Aún esperando…",
     "warn_the_user_about_waiting_lock": "Otra orden de YunoHost se está ejecutando ahora, estamos esperando a que termine antes de ejecutar esta",
-    "edit_text_question": "{}. Editar este texto ? [sN]: "
+    "edit_text_question": "{}. Editar este texto ? [sN]: ",
+    "logged_out": "Desconectado"
 }
