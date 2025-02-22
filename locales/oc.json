@@ -30,7 +30,7 @@
     "error_writing_file": "Error en escriure lo fichièr {file} : {error}",
     "error_removing": "Error en suprimir {path} : {error}",
     "error_changing_file_permissions": "Error en modificar las permissions per {path} : {error}",
-    "invalid_url": "Url invalida {url} (existís aqueste site ?)",
+    "invalid_url": "Fracàs de connexion a {url}... benlèu que lo servici es fora servici, o sètz pas corrèctament connectat a Internet en IPv4/IPv6.",
     "download_ssl_error": "Error SSL en se connectant a {url}",
     "download_timeout": "{url} a trigat per respondre, avèm quitat d’esperar.",
     "download_unknown_error": "Error en telecargar de donadas de {url} : {error}",

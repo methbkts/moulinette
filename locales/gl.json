@@ -42,5 +42,6 @@
     "cannot_write_file": "Non se puido escribir o ficheiro {file} (razón: {error})",
     "cannot_open_file": "Non se puido abrir o ficheiro {file} (razón: {error})",
     "websocket_request_expected": "Agardábase unha solicitude WebSocket",
-    "edit_text_question": "{}. Editar este texto ? [yN]: "
+    "edit_text_question": "{}. Editar este texto ? [yN]: ",
+    "logged_out": "Sesión pechada"
 }
