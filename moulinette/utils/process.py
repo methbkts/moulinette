@@ -131,9 +131,11 @@ from gevent import monkey
 if monkey.is_module_patched("threading"):
     from gevent import Greenlet
     from gevent.fileobject import FileObjectThread
+
     Thread = Greenlet
 else:
     from threading import Thread
+
     FileObjectThread = os.fdopen
 
 
