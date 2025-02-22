@@ -687,8 +687,9 @@ class Interface:
             def wrapper(*args, **kwargs):
                 try:
                     locale = request.get_header("locale")
-                except (KeyError, ValueError):
-                    locale = m18n.default_locale
+                except Exception as e:
+                    locale = None
+                locale = locale or m18n.default_locale
                 m18n.set_locale(locale)
                 return callback(*args, **kwargs)
 
