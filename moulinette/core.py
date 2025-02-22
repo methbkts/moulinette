@@ -84,7 +84,9 @@ class Translator:
         """
         if locale not in self._translations:
             if not self._load_translations(locale):
-                logger.debug(f"unable to load locale '{locale}' from '{self.locale_dir}'. Falling back to {self.default_locale}")
+                logger.debug(
+                    f"unable to load locale '{locale}' from '{self.locale_dir}'. Falling back to {self.default_locale}"
+                )
 
                 # Revert to default locale
                 self.locale = self.default_locale
